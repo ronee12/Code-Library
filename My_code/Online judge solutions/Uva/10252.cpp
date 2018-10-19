@@ -1,0 +1,60 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	char a[2000],b[2000];
+	int i,j,m,la,lb,temp,l;
+	while(gets(a))
+	{
+		gets(b);
+		char x[2000]={0};
+		m=0;
+	la=strlen(a);
+	lb=strlen(b);
+	if(la<lb)
+	{
+	for(i=0;i<la;i++)
+	{
+		for(j=0;j<lb;j++)
+		{
+	         if(a[i]==b[j])
+			 {
+			    x[m]=b[j];
+				m=m+1;
+				b[j]='1';
+				break;
+			 }
+		}
+	}
+	}
+	else
+	{
+	  for(i=0;i<lb;i++)
+	{
+		for(j=0;j<la;j++)
+		{
+	         if(b[i]==a[j])
+			 {
+			    x[m]=a[j];
+				m=m+1;
+				a[j]='1';
+				break;
+			 }
+		}
+	}  
+	}
+        l=strlen(x);
+			for(j=0;j<l-1;j++)
+		     for(i=0;i<l-1;i++)
+			 {
+			       if(x[i]>x[i+1])
+				   {
+			            temp=x[i]-48;
+			            x[i]=x[i+1];
+			            x[i+1]=temp+48;
+				   }
+			 }
+	printf("%s\n",x);
+	}
+return 0;
+}
